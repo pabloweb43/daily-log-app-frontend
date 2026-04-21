@@ -4,14 +4,11 @@ import isEmpty from "../utils/empty";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const MapboxExample = ({ scale, geometry, data }) => {
+const MapboxExample = ({ geometry, data }) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
 
   useEffect(() => {
-    // TO MAKE THE MAP APPEAR YOU MUST
-    // ADD YOUR ACCESS TOKEN FROM
-    // https://account.mapbox.com
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
     if (!isEmpty(geometry)) {
       console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^");

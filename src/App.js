@@ -7,21 +7,15 @@ import AppBar from "./components/AppBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import CanvasComponent from "./components/CanvasComponent";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { green } from "@mui/material/colors";
 import isEmpty from "./utils/empty";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
 import {
   SearchBox,
-  AddressAutofill,
-  useSearchBoxCore,
 } from "@mapbox/search-js-react";
 import axiosInstance from "./utils/axios";
 import Dialog from "./components/Dialog";
@@ -80,7 +74,6 @@ const App = () => {
 
  
 
-  const [scale, setScale] = useState([0, 0]);
   const [geometry, setGeometry] = useState({});
   const [logsByDaily, setLogsByDaily] = useState([]);
   const [day, setDay] = useState(0);
@@ -122,16 +115,8 @@ const App = () => {
   });
 
   const handleChangeValue = (key) => (e) => {
-
     if (key === "currentCycleUsed") {
       setData({ ...data, lifeCycleUsed: e.target.value});
-    }
-    else
-    {
-      setValue({
-        ...value,
-        [key]: key === "currentCycleUsed" ? e.target.value : e,
-      });
     }
   };
 
@@ -210,7 +195,7 @@ const App = () => {
       />
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid size={{ xs: 12, md: 8 }}>
-          <MapBox scale={scale} geometry={geometry} data={data} />
+          <MapBox geometry={geometry} data={data} />
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
           <Item sx={{ p: 4 }}>
@@ -301,7 +286,7 @@ const App = () => {
                         value={values.lifeCycleUsed}
                         onChange={handleChangeValues("lifeCycleUsed", setFieldValue)}
                         variant="outlined"
-                        sx={{ width: "100%", my: 2 }}
+                        sx={{ width: "100%", mt: 2 }}
                       />
                     )}
                   />

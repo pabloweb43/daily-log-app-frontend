@@ -35,7 +35,7 @@ export default function FullScreenDialog({showDialogStatus, handleDialogClose, t
           transition: Transition,
         }}
       >
-        <AppBar sx={{ position: "relative" }}>
+        <AppBar sx={{ position: "fixed" }}>
           <Toolbar>
           
             <Typography sx={{ ml: 2, flex: 1, color:'white' }} variant="h6" component="div">
@@ -52,7 +52,7 @@ export default function FullScreenDialog({showDialogStatus, handleDialogClose, t
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Box sx={{textAlign:'center'}}>
+        <Box sx={{textAlign:'center', pt:5, mt:5, pb:4}}>
           <CanvasComponent totalHour={totalHour} dutyType={dutyType} day={day} logs={logs} totalMile={totalMile} sheetDay={sheetDay} sheetMonth={sheetMonth} sheetYear={sheetYear} value={value} />
         </Box>
       </Dialog>

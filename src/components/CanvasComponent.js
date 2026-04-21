@@ -262,7 +262,7 @@ const CanvasComponent = ({ totalHour, dutyType, day, logs, totalMile, sheetDay, 
       <canvas
         ref={canvasRef}
         width={1200}
-        height={350 + 400 * (day+1) + 300}
+        height={550 + 400 * (day+2)}
         style={{ border: "2px solid black" }}
       />
     </div>
